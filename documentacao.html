@@ -174,35 +174,35 @@
       <p>A propriedade rangeOverflow</p>
       <pre><code>
         input id="id1" type="number" max="100"
-button onclick="myFunction()" OK button
+        button onclick="myFunction()" OK button
 
-p id="demo" p
+        p id="demo" p
 
-script
-function myFunction() {
-  let text = "Value OK";
-  if (document.getElementById("id1").validity.rangeOverflow) {
-    text = "Value too large";
-  }
-}
-script
+        script
+        function myFunction() {
+          let text = "Value OK";
+          if (document.getElementById("id1").validity.rangeOverflow) {
+            text = "Value too large";
+          }
+        }
+        script
       </code></pre>
       <p>EXEMPLO:</p>
       <p>A propriedade rangeUnderflow</p>
       <pre><code>
         input id="id1" type="number" min="100"
-button onclick="myFunction()" OK button
+        button onclick="myFunction()" OK button
 
-p id="demo" p
+        p id="demo" p
 
-script
-function myFunction() {
-  let text = "Value OK";
-  if (document.getElementById("id1").validity.rangeUnderflow) {
-    text = "Value too small";
-  }
-}
-script
+        script
+        function myFunction() {
+          let text = "Value OK";
+          if (document.getElementById("id1").validity.rangeUnderflow) {
+            text = "Value too small";
+          }
+        }
+        script
       </code></pre>
       
     </section>
@@ -216,11 +216,11 @@ script
       <pre><code>
         button onclick="myFunction()" Go Back button
 
-script
-function myFunction() {
-  window.history.back();
-}
-script
+        script
+        function myFunction() {
+          window.history.back();
+        }
+        script
       </code></pre>
       <h5>O método histórico go()</h5>
       <p>O método go() carrega uma URL específica da lista de histórico:</p>
@@ -228,11 +228,11 @@ script
       <pre><code>
         button onclick="myFunction()" Go Back 2 Pages button
 
-script
-function myFunction() {
-  window.history.go(-2);
-}
-script
+        script
+        function myFunction() {
+          window.history.go(-2);
+        }
+        script
       </code></pre>
       <h5>Propriedades do objeto histórico</h5>
       <table>
@@ -345,52 +345,52 @@ script
       <p>O getCurrentPosition()método é usado para retornar a posição do usuário. O exemplo abaixo retorna a latitude e longitude da posição do usuário:</p>
       <pre><code>
         script
-const x = document.getElementById("demo");
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
+        const x = document.getElementById("demo");
+        function getLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+          } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+          }
+        }
 
-function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude +
-  " br Longitude: " + position.coords.longitude;
-}
-script
+        function showPosition(position) {
+          x.innerHTML = "Latitude: " + position.coords.latitude +
+          " br Longitude: " + position.coords.longitude;
+        }
+        script
       </code></pre>
       <h5>Tratamento de erros e rejeições</h5>
       <p>O segundo parâmetro do getCurrentPosition()método é usado para lidar com erros. Ele especifica uma função a ser executada se não conseguir obter a localização do usuário:</p>
       <pre><code>
         function showError(error) {
-  switch(error.code) {
-    case error.PERMISSION_DENIED:
-      x.innerHTML = "User denied the request for Geolocation."
-      break;
-    case error.POSITION_UNAVAILABLE:
-      x.innerHTML = "Location information is unavailable."
-      break;
-    case error.TIMEOUT:
-      x.innerHTML = "The request to get user location timed out."
-      break;
-    case error.UNKNOWN_ERROR:
-      x.innerHTML = "An unknown error occurred."
-      break;
-  }
-}
+          switch(error.code) {
+            case error.PERMISSION_DENIED:
+              x.innerHTML = "User denied the request for Geolocation."
+              break;
+            case error.POSITION_UNAVAILABLE:
+              x.innerHTML = "Location information is unavailable."
+              break;
+            case error.TIMEOUT:
+              x.innerHTML = "The request to get user location timed out."
+              break;
+            case error.UNKNOWN_ERROR:
+              x.innerHTML = "An unknown error occurred."
+              break;
+          }
+        }
       </code></pre>
       <h5>Exibindo o resultado em um mapa</h5>
       <p>Para exibir o resultado em um mapa, você precisa acessar um serviço de mapas, como o Google Maps. No exemplo abaixo, a latitude e a longitude retornadas são usadas para mostrar a localização em um mapa do Google (usando uma imagem estática):</p>
       <pre><code>
         function showPosition(position) {
-  let latlon = position.coords.latitude + "," + position.coords.longitude;
+          let latlon = position.coords.latitude + "," + position.coords.longitude;
 
-  let img_url = "https://maps.googleapis.com/maps/api/staticmap?center=
-  "+latlon+"&zoom=14&size=400x300&sensor=false&key=YOUR_KEY";
+          let img_url = "https://maps.googleapis.com/maps/api/staticmap?center=
+          "+latlon+"&zoom=14&size=400x300&sensor=false&key=YOUR_KEY";
 
-  document.getElementById("mapholder").innerHTML = " img src='"+img_url+"'>";
-}
+          document.getElementById("mapholder").innerHTML = " img src='"+img_url+"'>";
+        }
       </code></pre>
       <h5>Informações específicas do local</h5>
       <p>A geolocalização também é muito útil para informações específicas do local, como:
@@ -408,19 +408,19 @@ clearWatch()- Pára o watchPosition()método.
 O exemplo abaixo mostra o watchPosition()método. Você precisa de um dispositivo GPS preciso para testar isso (como smartphone):</p>
       <pre><code>
         script
-const x = document.getElementById("demo");
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.watchPosition(showPosition);
-  } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
-function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude +
-  " br Longitude: " + position.coords.longitude;
-}
-script
+        const x = document.getElementById("demo");
+        function getLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.watchPosition(showPosition);
+          } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+          }
+        }
+        function showPosition(position) {
+          x.innerHTML = "Latitude: " + position.coords.latitude +
+          " br Longitude: " + position.coords.longitude;
+        }
+        script
       </code></pre>
     </section>
     <hr id="cor">
