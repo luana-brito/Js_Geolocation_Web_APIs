@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#222222">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title>Projeto N2</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+  <link rel="stylesheet" href="/css/documentacao.css">
+  <!--icone wpa-->
+  <link rel="icon" type="image/png" sizes="128x128" href="/icones/icone128.png">
+  <link rel="manifest" href="/json/manifest.json">
+
+</head>
+
+<body>
+
+<!--Menu-->
+<header>
+  <nav>
+    <a href="index.html">
+      <img src="/icones/mapa.png" alt="Ícone 1">
+    </a>
+    <a href="rota.html">
+      <img src="/icones/rota.png" alt="Ícone 2">
+    </a>
+    <a href="documentacao.html">
+      <img src="/icones/documentos.png" alt="Ícone 2">
+    </a>
+  </nav>
+</header><br>
+  
+
+<!-- Conteúdo da página -->
+  <h1>Documentação</h1><br>
+  <nav>
+    <ul>
+      <li><a href="#introducao">Introdução</a></li>
+      <li><a href="#validacao">API de validação</a></li>
+      <li><a href="#historico">API de histórico</a></li>
+      <li><a href="#armazenamento">API de armazenamento</a></li>
+      <li><a href="#busca">API de busca</a></li>
+      <li><a href="#geolocalizcao">API de geolocalização</a></li>
+    </ul>
+  </nav>
+<!-- Introduçãao -->
+  <main>
+    <section id="introducao">
+      <h2>Introdução</h2>
+      <h5>O que é web API?</h5>
+      <p>API significa Interface de Programação de Aplicativos.</p>
+      <p>Uma API da Web é uma interface de programação de aplicativos para a Web.</p>
+      <p>Uma API de navegador pode estender a funcionalidade de um navegador da web.</p>
+      <p>Uma API de servidor pode estender a funcionalidade de um servidor web.</p>
+      <h5>APIs do navegador</h5>
+      <p>Todos os navegadores possuem um conjunto de APIs da Web integradas para oferecer suporte a operações complexas e para ajudar no acesso a dados.</p>
+      <p>Por exemplo, a API de geolocalização pode retornar as coordenadas de onde o navegador está localizado.</p>
+      <pre><code>
+        const produto = require('nosso-produto');
+        produto.funcionalidade();
+      </code></pre>
+      <h5>APIs de terceiros</h5>
+      <p>APIs de terceiros não são incorporadas ao seu navegador.</p>
+      <p>Para usar essas APIs, você terá que baixar o código da Web.</p>
+      <p>EXEMPLO:</p>
+      <p>API do YouTube - permite exibir vídeos em um site da web.</p>
+      <p>API do Twitter - permite que você exiba tweets em um site.</p>
+      <p>API do Facebook - permite exibir informações do Facebook em um site.</p>
+      
+    </section>
+    <hr id="cor">
+<!-- Validação -->
+    <section id="validacao">
+      <h2>Validação</h2>
+      <h5>Métodos DOM de validação de restrição</h5>
+      <table>
+        <tr>
+          <td>Propriedade</td>
+          <td>Descrição</td>
+        </tr>
+        <tr>
+          <td>checkValidity()</td>
+          <td>Retorna verdadeiro se um elemento de entrada contiver dados válidos.</td>
+        </tr>
+        <tr>
+          <td>setCustomValidity()</td>
+          <td>Define a propriedade validMessage de um elemento de entrada.</td>
+        </tr>
+      </table>
+      <p>O método checkValidity()</p>
+      <pre><code>
+        input id="id1" type="number" min="100" max="300" required
+        button onclick="myFunction()" OK button
+        
+        p id="demo" p
+        
+        script
+        function myFunction() {
+          const inpObj = document.getElementById("id1");
+          if (!inpObj.checkValidity()) {
+            document.getElementById("demo").innerHTML = inpObj.validationMessage;
+          }
+        }
+        script
+      </code></pre>
+      <h5>Propriedades DOM de validação de restrição</h5>
+      <table>
+        <tr>
+          <td>Propriedade</td>
+          <td>Descrição</td>
+        </tr>
+        <tr>
+          <td>validity</td>
+          <td>Contém propriedades booleanas relacionadas à validade de um elemento de entrada.</td>
+        </tr>
+        <tr>
+          <td>validationMessage</td>
+          <td>Contém a mensagem que um navegador exibirá quando a validade for falsa.</td>
+        </tr>
+        <tr>
+          <td>willValidate</td>
+          <td>Indica se um elemento de entrada será validado.</td>
+        </tr>
+      </table>
+      <h5>Propriedades de validade</h5>
+      <table>
+        <tr>
+          <td>Propriedade</td>
+          <td>Descrição</td>
+        </tr>
+        <tr>
+          <td>customError</td>
+          <td>Defina como verdadeiro, se uma mensagem de validade personalizada for definida.</td>
+        </tr>
+        <tr>
+          <td>patternMismatch</td>
+          <td>Definido como verdadeiro, se o valor de um elemento não corresponder ao seu atributo padrão.</td>
+        </tr>
+        <tr>
+          <td>rangeOverflow</td>
+          <td>Definido como verdadeiro, se o valor de um elemento for maior que seu atributo máximo.</td>
+        </tr>
+        <tr>
+          <td>rangeUnderflow</td>
+          <td>Definido como verdadeiro, se o valor de um elemento for menor que seu atributo mínimo.</td>
+        </tr>
+        <tr>
+          <td>stepMismatch</td>
+          <td>Definido como verdadeiro, se o valor de um elemento for inválido por seu atributo de etapa.</td>
+        </tr>
+        <tr>
+          <td>tooLong</td>
+          <td>Definido como verdadeiro, se o valor de um elemento exceder seu atributo maxLength.</td>
+        </tr>
+        <tr>
+          <td>typeMismatch</td>
+          <td>Definido como verdadeiro, se o valor de um elemento for inválido por seu atributo de tipo.</td>
+        </tr>
+        <tr>
+          <td>valueMissing</td>
+          <td>Definido como verdadeiro, se um elemento (com um atributo obrigatório) não tiver valor.</td>
+        </tr>
+        <tr>
+          <td>valid</td>
+          <td>Defina como verdadeiro, se o valor de um elemento for válido.</td>
+        </tr>
+      </table>
+      <p>EXEMPLO:</p>
+      <p>A propriedade rangeOverflow</p>
+      <pre><code>
+        input id="id1" type="number" max="100"
+button onclick="myFunction()" OK button
+
+p id="demo" p
+
+script
+function myFunction() {
+  let text = "Value OK";
+  if (document.getElementById("id1").validity.rangeOverflow) {
+    text = "Value too large";
+  }
+}
+script
+      </code></pre>
+      <p>EXEMPLO:</p>
+      <p>A propriedade rangeUnderflow</p>
+      <pre><code>
+        input id="id1" type="number" min="100"
+button onclick="myFunction()" OK button
+
+p id="demo" p
+
+script
+function myFunction() {
+  let text = "Value OK";
+  if (document.getElementById("id1").validity.rangeUnderflow) {
+    text = "Value too small";
+  }
+}
+script
+      </code></pre>
+      
+    </section>
+    <hr id="cor">
+<!-- Introduçãao -->
+    <section id="historico">
+      <h2>Histórico</h2>
+      <h5>O método History back()</h5>
+      <p>O método back() carrega a URL anterior na lista windows.history. É o mesmo que clicar na "seta para trás" do seu navegador.</p>
+      <p>EXEMPLO:</p>
+      <pre><code>
+        button onclick="myFunction()" Go Back button
+
+script
+function myFunction() {
+  window.history.back();
+}
+script
+      </code></pre>
+      <h5>O método histórico go()</h5>
+      <p>O método go() carrega uma URL específica da lista de histórico:</p>
+      <p>EXEMPLO:</p>
+      <pre><code>
+        button onclick="myFunction()" Go Back 2 Pages button
+
+script
+function myFunction() {
+  window.history.go(-2);
+}
+script
+      </code></pre>
+      <h5>Propriedades do objeto histórico</h5>
+      <table>
+        <tr>
+          <td>Propriedade</td>
+          <td>Descrição</td>
+        </tr>
+        <tr>
+          <td>length</td>
+          <td>Retorna o número de URLs na lista de histórico.</td>
+        </tr>   
+      </table>
+      <h5>Métodos de Objeto Histórico</h5>
+      <table>
+        <tr>
+          <td>Propriedade</td>
+          <td>Descrição</td>
+        </tr>
+        <tr>
+          <td>back()</td>
+          <td>Carrega a URL anterior na lista de histórico.</td>
+        </tr>
+        <tr>
+          <td>forward()</td>
+          <td>Carrega a próxima URL na lista de histórico.</td>
+        </tr>
+        <tr>
+          <td>go()</td>
+          <td>Carrega uma URL específica da lista de histórico.</td>
+        </tr>   
+      </table>
+    </section>
+    <hr id="cor">
+<!-- Armazenamento -->
+    <section id="armazenamento">
+      <h2>Armazenamento</h2>
+      <p>A API Web Storage é uma sintaxe simples para armazenar e recuperar dados no navegador. É muito fácil de usar:</p>
+      <pre><code>
+        localStorage.setItem("name", "John Doe");
+        localStorage.getItem("name");
+      </code></pre>
+      <h5>O objeto localStorage</h5>
+      <p>O objeto localStorage fornece acesso a um armazenamento local para um Web site específico. Ele permite que você armazene, leia, adicione, modifique e exclua itens de dados para esse domínio. Os dados são armazenados sem prazo de validade e não serão excluídos quando o navegador for fechado. Os dados estarão disponíveis por dias, semanas e anos.</p>
+      <h5>O método setItem()</h5>
+      <p>O método localStorage.setItem() armazena um item de dados em um armazenamento. Leva um nome e um valor como parâmetros.</p>
+      <p>EXEMPLO:</p>
+      <pre><code>
+        localStorage.setItem("name", "John Doe");
+      </code></pre>
+      <h5>O método getItem()</h5>
+      <p>O método localStorage.getItem() recupera um item de dados do armazenamento. Leva um nome como parâmetro</p>
+      <p>EXEMPLO:</p>
+      <pre><code>
+        localStorage.getItem("name");
+      </code></pre>
+      <h5>O objeto sessionStorage</h5>
+      <p>O objeto sessionStorage é idêntico ao objeto localStorage. A diferença é que o objeto sessionStorage armazena dados para uma sessão. Os dados são excluídos quando o navegador é fechado.</p>
+      <p>EXEMPLO:</p>
+      <pre><code>
+        sessionStorage.getItem("name");
+      </code></pre>
+       <h5>O método setItem()</h5>
+      <p>O método sessionStorage.setItem() armazena um item de dados em um armazenamento. Leva um nome e um valor como parâmetros.</p>
+      <p>EXEMPLO:</p>
+      <pre><code>
+        sessionStorage.setItem("name", "John Doe");
+      </code></pre>
+      <h5>O método getItem()</h5>
+      <p>O método sessionStorage.getItem() recupera um item de dados do armazenamento. Leva um nome como parâmetro.</p>
+      <p>EXEMPLO:</p>
+      <pre><code>
+        sessionStorage.getItem("name");
+      </code></pre>
+    </section>
+    <hr id="cor">
+<!-- Busca -->
+    <section id="busca">
+      <h2>Busca</h2>
+      <h5>Um exemplo de API de busca</h5>
+      <p>O exemplo abaixo busca um arquivo e exibe o conteúdo:</p>
+      <pre><code>
+        fetch(file)
+        .then(x => x.text())
+        .then(y => myDisplay(y));
+      </code></pre>
+      <p>Como Fetch é baseado em async e await, o exemplo acima pode ser mais fácil de entender assim:</p>
+      <pre><code>
+        async function getText(file) {
+          let x = await fetch(file);
+          let y = await x.text();
+          myDisplay(y);
+        }
+      </code></pre>
+      <p>Outro exemplo</p>
+      <pre><code>
+        async function getText(file) {
+          let myObject = await fetch(file);
+          let myText = await myObject.text();
+          myDisplay(myText);
+        }
+      </code></pre>
+    </section>
+    <hr id="cor">
+<!-- Geolocalização -->
+    <section id="geolocalizcao">
+      <h2>Geolocalização</h2>
+      <h5>Localize a posição do usuário</h5>
+      <p>A API de geolocalização HTML é usada para obter a posição geográfica de um usuário. Como isso pode comprometer a privacidade, a posição não está disponível a menos que o usuário aprove.</p>
+      <h5>Usando a API de geolocalização</h5>
+      <p>O getCurrentPosition()método é usado para retornar a posição do usuário. O exemplo abaixo retorna a latitude e longitude da posição do usuário:</p>
+      <pre><code>
+        script
+const x = document.getElementById("demo");
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude +
+  " br Longitude: " + position.coords.longitude;
+}
+script
+      </code></pre>
+      <h5>Tratamento de erros e rejeições</h5>
+      <p>O segundo parâmetro do getCurrentPosition()método é usado para lidar com erros. Ele especifica uma função a ser executada se não conseguir obter a localização do usuário:</p>
+      <pre><code>
+        function showError(error) {
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      x.innerHTML = "User denied the request for Geolocation."
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML = "Location information is unavailable."
+      break;
+    case error.TIMEOUT:
+      x.innerHTML = "The request to get user location timed out."
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML = "An unknown error occurred."
+      break;
+  }
+}
+      </code></pre>
+      <h5>Exibindo o resultado em um mapa</h5>
+      <p>Para exibir o resultado em um mapa, você precisa acessar um serviço de mapas, como o Google Maps. No exemplo abaixo, a latitude e a longitude retornadas são usadas para mostrar a localização em um mapa do Google (usando uma imagem estática):</p>
+      <pre><code>
+        function showPosition(position) {
+  let latlon = position.coords.latitude + "," + position.coords.longitude;
+
+  let img_url = "https://maps.googleapis.com/maps/api/staticmap?center=
+  "+latlon+"&zoom=14&size=400x300&sensor=false&key=YOUR_KEY";
+
+  document.getElementById("mapholder").innerHTML = " img src='"+img_url+"'>";
+}
+      </code></pre>
+      <h5>Informações específicas do local</h5>
+      <p>A geolocalização também é muito útil para informações específicas do local, como:
+
+Informações locais atualizadas
+Mostrando pontos de interesse perto do usuário
+Navegação curva a curva (GPS)</p>
+      <h5>O método getCurrentPosition() - Dados de retorno</h5>
+      <p>O getCurrentPosition()método retorna um objeto em caso de sucesso. As propriedades de latitude, longitude e precisão são sempre retornadas. As outras propriedades são retornadas se disponíveis.</p>
+      <h5>Objeto de geolocalização - Outros métodos interessantes</h5>
+      <p>O objeto Geolocation também possui outros métodos interessantes:
+
+watchPosition()- Retorna a posição atual do usuário e continua a retornar a posição atualizada conforme o usuário se move (como o GPS em um carro).
+clearWatch()- Pára o watchPosition()método.
+O exemplo abaixo mostra o watchPosition()método. Você precisa de um dispositivo GPS preciso para testar isso (como smartphone):</p>
+      <pre><code>
+        script
+const x = document.getElementById("demo");
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude +
+  " br Longitude: " + position.coords.longitude;
+}
+script
+      </code></pre>
+    </section>
+    <hr id="cor">
+  </main>
+  <footer>
+    <p>&copy; Sistemas distribuidos. Projeto N2.</p>
+  </footer>
+  
+<!-- Importação dos scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+  <script src="/javascript/script.js"></script>
+  <script src="/javascript/service-worker.js"></script>
+
+</body>
+
+</html>
